@@ -1,19 +1,27 @@
-import { createChatBotMessage } from 'react-chatbot-kit';
+import BotLogic from './BotLogic';
 
 const config = {
-  botName: "HelperBot",
   initialMessages: [
-    createChatBotMessage("Welcome to excelsoft institutes"),
-    createChatBotMessage("Hello! How can I help you?")
+    {
+      type: 'text',
+      id: 1,
+      message: "Hi! How can I help you today?"
+    }
   ],
-  customStyles: {
-    botMessageBox: {
-      backgroundColor: "#376B7E",
-    },
-    chatButton: {
-      backgroundColor: "#5ccc9d",
-    },
+  state: {},
+  customComponents: {},
+  customStyles: {},
+  widgets: [],
+  customMessageParser: class {
+    constructor(actionProvider) {
+      this.actionProvider = actionProvider;
+    }
+
+    parse(message) {
+      this.actionProvider.parseMessage(message);
+    }
   },
+  customActionProvider: BotLogic
 };
 
 export default config;
