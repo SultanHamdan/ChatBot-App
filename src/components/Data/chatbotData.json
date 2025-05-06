@@ -10,24 +10,28 @@
         "intro": "What would you like to know more about BSc?",
         "subjects": "BSc consists of 2 subjects: Math and Computers.",
         "duration": "The course duration of BSc is 3 years.",
+        "fees": "The BSC fee is 50000₹ for the entire tenure.",
         "complexity": "BSc is moderately complex, especially for those comfortable with math and logical reasoning."
       },
       "bcom": {
         "intro": "What would you like to know more about BCom?",
         "subjects": "BCom consists of 2 subjects: Accounting and Economics.",
         "duration": "The course duration of BCom is 3 years.",
+        "fees": "The BCom fee is 60000₹ for the entire tenure.",
         "complexity": "BCom is considered to be the least complex and manageable with basic math and theory."
       },
       "bca": {
         "intro": "What would you like to know more about BCA?",
         "subjects": "BCA consists of 2 subjects: Math and Computers.",
         "duration": "The course duration of BCA is 3 years.",
+        "fees": "The BCA fee is 100000₹ for the entire tenure.",
         "complexity": "BCA is the most complex due to programming, logic building, and technical concepts."
       },
       "ba": {
         "intro": "What would you like to know more about BA?",
         "subjects": "BA consists of 2 subjects: History and Literature.",
         "duration": "The course duration of BA is 3 years.",
+        "fees": "The BA fee is 30000₹ for the entire tenure.",
         "complexity": "BA is easier for students with interest in reading, writing, and humanities."
       }
     }

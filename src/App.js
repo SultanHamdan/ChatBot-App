@@ -1,6 +1,5 @@
 import React from 'react';
-
-import HeroSection from './components/HeroSection';
+import HeroSection from './components/ExternalUI/HeroSection';
 
 function App() {
   return (
