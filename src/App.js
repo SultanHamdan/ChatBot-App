@@ -1,10 +1,9 @@
 import React from 'react';
-import HeroSection from './components/ExternalUI/HeroSection';
+import HeroSection from './components/HeroUI/HeroSection';
 
 function App() {
   return (
-    <div style={{ padding: "20px" }}>
-      <h1></h1>
+    <div>
       <HeroSection />
     </div>
   );
