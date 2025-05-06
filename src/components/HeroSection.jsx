@@ -2,6 +2,7 @@ import './HeroSection.css';
 import { useState, useEffect } from 'react';
 import ES from '../components/ES.png'; 
 import Chatbot from './Chatbot';
+import UserData from './UserInfo/UserData';
 
 const Typewriter = () => {
     const texts = [
@@ -52,7 +53,11 @@ function HeroSection() {
 
             <div className="outer1">
                 {!showChat && (
+                    <>
                     <Typewriter />
+                    
+                    </>
+                    
                 )}
 
                 {showChat && (
