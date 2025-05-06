@@ -1,7 +1,7 @@
 import chatbotData from '../Data/chatbotData.json';
 
 class BotLogic {
-  constructor(createChatBotMessage, setStateFunc, createClientMessage) {
+  constructor(createChatBotMessage, setStateFunc) {
     this.createChatBotMessage = createChatBotMessage;
     this.setState = setStateFunc;
   }
@@ -17,7 +17,7 @@ class BotLogic {
   parseMessage = (message) => {
     const lower = message.toLowerCase();
   
-    // Check general section
+    // Checks if the user’s message includes any key from the "general" section of the JSON 
     if (chatbotData.general) {
       for (const key in chatbotData.general) {
         if (lower.includes(key)) {
@@ -63,7 +63,7 @@ class BotLogic {
         }
       }
   
-      // Fallback
+
       return {
         ...prev,
         messages: [...prev.messages, this.createChatBotMessage("Sorry, I can't help you with that.")]
