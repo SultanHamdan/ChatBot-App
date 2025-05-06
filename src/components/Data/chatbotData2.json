@@ -1,0 +1,29 @@
+{
+    "general": {
+      "department": "We serve in diffrent departments like cardiology, neurology, pediatrics.",
+      "hospital": "Welcome to CityCare Hospital. We are here to help you 24/7.",
+      "location": "We are located at 123 Health Avenue, Wellness City.",
+      "emergency": "Emergency services are available 24/7. Dial 102 for ambulance."
+    },
+    "departments": {
+      "cardiology": {
+        "intro": "Cardiology deals with heart-related treatments and surgeries.",
+        "services": "We offer ECG, angiography, angioplasty, and heart surgery.",
+        "doctors": "Dr. Smith and Dr. Patel are our leading cardiologists.",
+        "timings": "Cardiology department is open from 9 AM to 5 PM, Monday to Saturday."
+      },
+      "neurology": {
+        "intro": "Neurology treats brain, spinal cord, and nervous system disorders.",
+        "services": "MRI, EEG, stroke rehabilitation, and neurological consultations.",
+        "doctors": "Dr. Neha Sharma and Dr. Rakesh Jain are our neurology experts.",
+        "timings": "Neurology is available from 10 AM to 4 PM, Monday to Friday."
+      },
+      "pediatrics": {
+        "intro": "Pediatrics focuses on medical care for infants and children.",
+        "services": "Vaccinations, child wellness checkups, and nutritional advice.",
+        "doctors": "Dr. Anjali Mehra is our senior pediatrician.",
+        "timings": "Pediatrics is available from 9 AM to 1 PM, Monday to Saturday."
+      }
+    }
+  }
+  

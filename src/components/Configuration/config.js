@@ -1,5 +1,5 @@
 import { createChatBotMessage } from "react-chatbot-kit";
-import BotLogic from "./BotLogic";
+import BotLogic from "../Logic/BotLogic";
 
 const config = {
   initialMessages: [
