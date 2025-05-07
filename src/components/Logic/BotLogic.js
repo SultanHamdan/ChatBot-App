@@ -14,10 +14,32 @@ class BotLogic {
     }));
   };
 
+  formatResponse = (response, topic) => {
+    if (typeof response === "string") {
+      return response;
+    } else if (typeof response === "object" && response !== null) {
+      if (topic === "complexity") {
+        return `Level: ${response.level}\nReason: ${response.reason}\nTips:\n- ${response.tips.join("\n- ")}`;
+      } else if (topic === "career_prospects") {
+        return Object.entries(response)
+          .map(([field, info]) => {
+            return `${field.toUpperCase()}:\n  Roles: ${info.roles.join(", ")}\n  Skills: ${info.skills_required.join(", ")}`;
+          })
+          .join("\n\n");
+      } else if (topic === "specializations" && Array.isArray(response)) {
+        return `Specializations:\n- ${response.join("\n- ")}`;
+      } else {
+        return JSON.stringify(response, null, 2);
+      }
+    } else {
+      return "Sorry, I couldn't understand the data.";
+    }
+  };
+
   parseMessage = (message) => {
     const lower = message.toLowerCase();
 
-    // Check general section
+    // This section is to check the general 
     if (chatbotData.general) {
       for (const key in chatbotData.general) {
         if (lower.includes(key)) {
@@ -36,36 +58,30 @@ class BotLogic {
       new Set(sectionNames.flatMap((name) => Object.keys(sections[name])))
     ).filter((topic) => topic !== 'intro');
 
-    // Determine if any section is mentioned in the message
     const mentionedSection = sectionNames.find((section) =>
       lower.includes(section)
     );
-
-    // Determine if any topic is mentioned in the message
     const mentionedTopic = topics.find((topic) => lower.includes(topic));
 
-    // Update state based on identified section and topic
     this.setState((prev) => {
       let currentTopic = prev.currentTopic;
 
-      // If a new section is mentioned, update currentTopic
       if (mentionedSection) {
         currentTopic = mentionedSection;
       }
 
-      // If both section and topic are mentioned
       if (mentionedSection && mentionedTopic) {
+        const response = sections[currentTopic][mentionedTopic];
         return {
           ...prev,
           currentTopic,
           messages: [
             ...prev.messages,
-            this.createChatBotMessage(sections[currentTopic][mentionedTopic]),
+            this.createChatBotMessage(this.formatResponse(response, mentionedTopic)),
           ],
         };
       }
 
-      // If only section is mentioned
       if (mentionedSection) {
         return {
           ...prev,
@@ -77,18 +93,17 @@ class BotLogic {
         };
       }
 
-      // If only topic is mentioned and currentTopic is set
       if (mentionedTopic && currentTopic && sections[currentTopic]) {
+        const response = sections[currentTopic][mentionedTopic];
         return {
           ...prev,
           messages: [
             ...prev.messages,
-            this.createChatBotMessage(sections[currentTopic][mentionedTopic]),
+            this.createChatBotMessage(this.formatResponse(response, mentionedTopic)),
           ],
         };
       }
 
-      // If neither section nor topic is mentioned
       return {
         ...prev,
         messages: [
