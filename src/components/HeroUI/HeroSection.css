@@ -1,83 +1,38 @@
-.container {
-    background: linear-gradient(135deg, #0d1b2a, #1e3c72);
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
+.hero-container {
+    background-color: #0d1b2a;
+    min-height: 100vh;
     position: relative;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-
-.logo {
-    width: 300px;
-    height: auto;
-    margin-bottom: 20px;
+.banner-image {
+    height: 300px;
+    object-fit: cover;
+    filter: brightness(60%);
 }
 
-.outer1 {
-    flex: 1;
-    width: 90vw;
-    background: linear-gradient(135deg, #89c2d9, #023e8a);
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-    font-family: 'Courier New', monospace;
+.overlay {
+    padding: 20px;
     text-align: center;
+    color: white;
 }
 
 .typewriter {
-    white-space: nowrap;
     overflow: hidden;
-    border-right: 3px solid black;
-    letter-spacing: 2px;
-    font-size: 32px;
-    margin-bottom: 20px;
+    border-right: 3px solid white;
+    white-space: nowrap;
     animation: blink-caret 0.75s step-end infinite;
 }
 
 @keyframes blink-caret {
     from, to { border-color: transparent; }
-    50% { border-color: black; }
-}
-
-.outer2 {
-    width: 100%;
-    max-width: 362px;
-}
-
-.mainsection {
-    background-color: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.search-bar {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-}
-
-.placetext {
-    font-weight: 900;
-    font-size: x-large;
-    font-family:'Gill Sans';
-
+    50% { border-color: white; }
 }
 
 .chatbot-button {
     position: fixed;
     bottom: 30px;
-    right: 60px;
+    right: 30px;
     background-color: #007bff;
     color: white;
     width: 60px;
@@ -88,18 +43,22 @@
     align-items: center;
     font-size: 28px;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     animation: float 2s ease-in-out infinite;
     transition: background-color 0.3s;
+    z-index: 1000;
 }
 
 .chatbot-button:hover {
     background-color: #ffb703;
 }
 
-
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0px); }
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+.chatbot-box {
+    min-height: 400px;
 }

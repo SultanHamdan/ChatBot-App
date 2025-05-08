@@ -1,13 +1,14 @@
 import './HeroSection.css';
 import { useState, useEffect } from 'react';
-import ES from '../Photos/ES.png'; 
+import ES from '../Photos/ES.png';
+import BannerImg from '../Photos/banner.jpg'; // Add your banner image
 import Chatbot from '../InternalUI/Chatbot';
 
 const Typewriter = () => {
     const texts = [
-        "WELCOME TO EXCELSOFT AI CHATBOT...",
-        "ASK ANYTHING ABOUT EXCELSOFT...",
-        "LET'S GET STARTED!"
+        "Welcome to ExcelSoft AI Chatbot",
+        "Your Knowledge Assistant for ExcelSoft",
+        "Let’s Get Started!"
     ];
 
     const [textIndex, setTextIndex] = useState(0);
@@ -16,7 +17,6 @@ const Typewriter = () => {
 
     useEffect(() => {
         const currentText = texts[textIndex];
-
         const updatedText = isDeleting
             ? currentText.substring(0, displayedText.length - 1)
             : currentText.substring(0, displayedText.length + 1);
@@ -36,7 +36,7 @@ const Typewriter = () => {
         return () => clearTimeout(timeout);
     }, [displayedText, isDeleting, textIndex]);
 
-    return <h1 className="typewriter">{displayedText}</h1>;
+    return <h1 className="display-5 fw-bold text-white typewriter text-center">{displayedText}</h1>;
 };
 
 function HeroSection() {
@@ -47,21 +47,25 @@ function HeroSection() {
     };
 
     return (
-        <div className='container'>
-            <img src={ES} alt="ExcelSoft Logo" className="logo" />
-
-            <div className="outer1">
-                {!showChat && (
+        <div className="hero-container">
+            <div className="position-relative">
+                <img src={BannerImg} className="img-fluid w-100 banner-image" alt="Banner" />
+                <div className="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                    <img src={ES} alt="ExcelSoft Logo" className="mb-4" style={{ width: '200px' }} />
                     <Typewriter />
-                )}
+                </div>
+            </div>
 
-                {showChat && (
-                    <div className="outer2">
-                        <div className="mainsection">
-                            <Chatbot/>
+            <div className="container py-5">
+                <div className="row justify-content-center">
+                    {showChat && (
+                        <div className="col-md-6">
+                            <div className="p-4 bg-white shadow rounded chatbot-box">
+                                <Chatbot />
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
 
             <div className="chatbot-button" onClick={toggleChat}>
