@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroSection from './components/HeroUI/HeroSection';
+import HeroSection from './components/HeroUI/HeroSection'
 
 function App() {
   return (
