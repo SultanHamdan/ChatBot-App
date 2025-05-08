@@ -36,7 +36,7 @@ const Typewriter = () => {
         return () => clearTimeout(timeout);
     }, [displayedText, isDeleting, textIndex]);
 
-    return <h1 className="display-5 fw-bold text-white typewriter text-center">{displayedText}</h1>;
+    return <h3 className="display-6 fw-bold text-white typewriter text-center">{displayedText}</h3>;
 };
 
 function HeroSection() {
@@ -51,7 +51,7 @@ function HeroSection() {
             <div className="position-relative">
                 <img src={BannerImg} className="img-fluid w-100 banner-image" alt="Banner" />
                 <div className="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
-                    <img src={ES} alt="ExcelSoft Logo" className="mb-4" style={{ width: '200px' }} />
+                    <img src={ES} alt="ExcelSoft Logo" className="mb-4" style={{ width: '320px' }} />
                     <Typewriter />
                 </div>
             </div>
@@ -59,8 +59,8 @@ function HeroSection() {
             <div className="container py-5">
                 <div className="row justify-content-center">
                     {showChat && (
-                        <div className="col-md-6">
-                            <div className="p-4 bg-white shadow rounded chatbot-box">
+                        <div className="botwindow">
+                            <div>
                                 <Chatbot />
                             </div>
                         </div>

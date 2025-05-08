@@ -1,9 +1,19 @@
 .hero-container {
-    background-color: #0d1b2a;
+    background: linear-gradient(115deg,#03045e, #48cae4, #03045e);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
     min-height: 100vh;
     position: relative;
     font-family: 'Segoe UI', sans-serif;
 }
+
+.botwindow {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 100%;            
+    width: 100%;             
+}
+
 
 .banner-image {
     height: 300px;
@@ -61,4 +71,15 @@
 
 .chatbot-box {
     min-height: 400px;
+}
+
+.hidden-btn {
+    opacity: 0;
+    pointer-events: none; /* prevent click */
+    transition: opacity 0.4s ease;
+}
+
+.chatbot-button.hidden-btn:hover {
+    opacity: 1;
+    pointer-events: auto;
 }
